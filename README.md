@@ -1,4 +1,4 @@
-# <img src="https://github.com/Electrostat-Lab/A-terminal/blob/master/assets/native-term.png" width=80 height=80 /> A-terminal
+# <img src="https://github.com/Electrostat-Lab/A-terminal/blob/master/assets/native-term-logo.png" width=80 height=80 /> A-terminal
 
 A complete development suite for Systems Engineering on the Android through the Android Shell and Shell commands. Android Shell is a constellation of user-space binaries designed to manipulate the Android Platform and the Android Kernel through the Shell interface and System Calls (See the architecture of the GNU/Linux and Linux Kernel).
 
