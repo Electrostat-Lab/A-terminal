@@ -15,6 +15,7 @@ Depending on the requirements and goals of the user applications that will utili
 - [ ] Manipulation of CharDev devices via the CharDev/VFS interface.
 - [ ] Manipulation of Block devices via the block/VFS interface.
 - [ ] Manipulation of Bus protocol devices via the Bus/VFS (Sysfs) interface.
+- [ ] Manipulation of the Kernel Virtual Machine Subsystem (KVM) (ADVANCED).
 - [ ] Unit testing software components.
 - [ ] Deployment to maven-central.
 - [ ] Integration testing with an application from jMonkeyEngine.
