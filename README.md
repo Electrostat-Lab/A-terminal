@@ -19,3 +19,12 @@ Depending on the requirements and goals of the user applications that will utili
 - [ ] Unit testing software components.
 - [ ] Deployment to maven-central.
 - [ ] Integration testing with an application from jMonkeyEngine.
+
+## Chapter.01: Problem Analysis and Architecture
+- **Problem:** The main problem is "access and control over software resources and IO resources in the OEM Android devices is limited". 
+- **Solution:** To overcome this problem, it's required to set the SELinux (Security Enhanced Linux) Subsystem to permissive or to disabled, and to have root superuser accessibility to access the Kernel Virtual Filesystem (VFS) to gain control over the Kernel architecture either through the user process directly or by delegating the execution pipeline to another system binary.
+
+### Section 1.1 Problem Analysis
+
+
+### Section 1.2 Architecture 
