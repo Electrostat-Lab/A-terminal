@@ -11,6 +11,8 @@ Depending on the requirements and goals of the user applications that will utili
 - [x] Manipulation via Shell Interface.
 - [x] Abstraction for concurrency execution.
 - [ ] Concretion for concurrency execution.
+- [ ] Reading system messages and kernel logs via dmseg.
+- [ ] Manipulating the SELinux Kernel Subsystem Modes.
 - [ ] Manipulation via File-Operations Kernel userspace interface through the Kernel VFS.
 - [ ] Manipulation of CharDev devices via the CharDev/VFS interface.
 - [ ] Manipulation of Block devices via the block/VFS interface.
@@ -23,6 +25,21 @@ Depending on the requirements and goals of the user applications that will utili
 ## Chapter.01: Problem Analysis and Architecture
 - **Problem:** The main problem is "access and control over software resources and IO resources in the OEM Android devices is limited". 
 - **Solution:** To overcome this problem, it's required to set the SELinux (Security Enhanced Linux) Subsystem to permissive or to disabled, and to have root superuser accessibility to access the Kernel Virtual Filesystem (VFS) to gain control over the Kernel architecture either through the user process directly or by delegating the execution pipeline to another system binary.
+- **Technology Stack**: the **Shell Interface**, the **Android Linux System Binaries**, and the **Linux Kernel Userspace API**.
+
+> [!NOTE]
+> SELinux, an acronym for Security Enhanced Linux, is a [Linux Security Module](https://www.kernel.org/doc/html/v4.15/admin-guide/LSM/index.html) that provides  a mechanism Mandatory Access Control (MAC) extensions which provide a comprehensive security policy.
+>
+> Modes of Operation:
+> * **Enforcing Mode**: Violations of the policy are denied, and the action is blocked.
+> * **Permissive Mode**: Violations are logged but are not blocked.
+> * **Disabled Mode**: No SELinux checks are performed.
+>
+> The SELinux configuration modes can be changed before compiling the kernel or overriden during boot or system runtime or alternatively with a custom boot image (i.e., custom `boot.img`).
+> 
+> The `Linux Security Module (LSM)` framework provides a mechanism for various security checks to be hooked by new kernel extensions. The name “module” is a bit of a misnomer since these extensions are not actually loadable kernel modules. Instead, they are selectable at build-time via `CONFIG_DEFAULT_SECURITY` and can be overridden at boot-time via the `"security=..."` kernel command line argument, in the case where multiple LSMs were built into a given kernel.
+
+
 
 ### Section 1.1 Problem Analysis
 
