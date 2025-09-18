@@ -39,9 +39,12 @@ Depending on the requirements and goals of the user applications that will utili
 > 
 > The `Linux Security Module (LSM)` framework provides a mechanism for various security checks to be hooked by new kernel extensions. The name “module” is a bit of a misnomer since these extensions are not actually loadable kernel modules. Instead, they are selectable at build-time via `CONFIG_DEFAULT_SECURITY` and can be overridden at boot-time via the `"security=..."` kernel command line argument, in the case where multiple LSMs were built into a given kernel.
 
-
-
 ### Section 1.1 Problem Analysis
+* Let, $P$ be the major problem of concern, the "advanced access and control over software resources and IO resources"; such that $P$ is a set that is formed by juxtaposing other sets $P_{io}$ and $P_{OS}$ for problems of IO and problems of OS resources respectively.
+$$P = P_{OS} \cup P_{io}$$.
+* Breaking down the sets $P_{OS}$ and $P_{io}$ will yield the smallest subproblems that will build into the architectural components.
+$$P_{OS}=$$
+$$P_{io}=$$
 
 
 ### Section 1.2 Architecture 
