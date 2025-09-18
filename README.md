@@ -43,8 +43,16 @@ Depending on the requirements and goals of the user applications that will utili
 * Let, $P$ be the major problem of concern, the "advanced access and control over software resources and IO resources"; such that $P$ is a set that is formed by juxtaposing other sets $P_{io}$ and $P_{OS}$ for problems of IO and problems of OS resources respectively.
 $$P = P_{OS} \cup P_{io}$$.
 * Breaking down the sets $P_{OS}$ and $P_{io}$ will yield the smallest subproblems that will build into the architectural components.
-$$P_{OS}=\\{P_{Forking\ and\ cloning\ processes}, P_{Launching\ Applications}, P_{Installing\ Applications}, P_{Uninstalling\ Applications}, P_{Starting\ Intents}, P_{Starting\ Services}, P_{Stopping\ Services}, P_{Intercepting\ Applications\ Intent\ Data}, P_{Reading\ Other\ Applications\ Data}, P_{Killing\ Applications}\\}$$
-$$P_{io}=$$
+$$P_{OS}=\\{P_{Forking\ and\ cloning\ processes}, P_{Launching\ Applications}, P_{Installing\ Applications}, P_{Uninstalling\ Applications}, P_{Starting\ Intents}, P_{Starting\ Services}, P_{Stopping\ Services}, P_{Intercepting\ Applications\ Intent\ Data}, P_{Reading\ Other\ Applications\ Data}, P_{Killing\ Applications, P_{Allocating\ memory\ for\ processes}, P_{Deallocating\ memory\ from\ processes}\\}$$
+$$P_{io}=\\{P_{Read\ $$
 
 
 ### Section 1.2 Architecture 
+
+
+## References:
+* Linux Kernel Architecture.
+* GNU/Linux Systems.
+* Android Platform Architecture.
+* Discrete Mathematics, Formal Methods for Software Engineering.
+* IEEE SWEBOK.
