@@ -44,7 +44,7 @@ Depending on the requirements and goals of the user applications that will utili
 $$P = P_{OS} \cup P_{io}$$.
 * Breaking down the sets $P_{OS}$ and $P_{io}$ will yield the smallest subproblems that will build into the architectural components.
 
-$$P_{OS}=\\{P_{Forking\ and\ cloning\ processes}, P_{Launching\ Applications}, P_{Installing\ Applications}, P_{Uninstalling\ Applications}, P_{Starting\ Intents}, P_{Starting\ Services}, P_{Stopping\ Services}, P_{Intercepting\ Applications\ Intent\ Data}, P_{Reading\ Other\ Applications\ Data}, P_{Killing\ Applications}, P_{Allocating\ memory\ for\ processes}, P_{Deallocating\ memory\ from\ processes}, P_{Secuirty\ Operations},...\\}$$
+$$P_{OS}=\\{P_{Forking\ and\ cloning\ processes}, P_{Launching\ Applications}, P_{Installing\ Applications}, P_{Uninstalling\ Applications}, P_{Starting\ Intents}, P_{Starting\ Services}, P_{Stopping\ Services}, P_{Intercepting\ Applications\ Intent\ Data}, P_{Reading\ Other\ Applications\ Data}, P_{Killing\ Applications}, P_{Allocating\ memory\ for\ processes}, P_{Deallocating\ memory\ from\ processes}, P_{Secuirty\ Operations}, P_{Networking\ Operations}...\\}$$
 
 $$P_{io}=\\{P_{Read\ Hardware\ Data}, P_{Write\ Hardware\ Data}, P_{Input\ Emulation}, P_{Output\ Emulation}\\}$$
 
