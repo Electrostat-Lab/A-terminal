@@ -44,7 +44,7 @@ Depending on the requirements and goals of the user applications that will utili
 $$P = P_{OS} \cup P_{io}$$.
 * Breaking down the sets $P_{OS}$ and $P_{io}$ will yield the smallest subproblems that will build into the architectural components.
 
-$$P_{OS}=\\{P_{Forking\ and\ cloning\ processes}, P_{Sandboxing\ Processes}, P_{Launching\ Applications}, P_{Installing\ Applications}, P_{Uninstalling\ Applications}, P_{Starting\ Intents}, P_{Starting\ Services}, P_{Stopping\ Services}, P_{Intercepting\ Applications\ Intent\ Data}, P_{Reading\ Other\ Applications\ Data}, P_{Killing\ Applications}, P_{Allocating\ memory\ for\ processes}, P_{Deallocating\ memory\ from\ processes}, P_{Secuirty\ Operations}, P_{Networking\ Operations}...\\}$$
+$$P_{OS}=\\{P_{Forking\ and\ cloning\ processes}, P_{Sandboxing\ Processes}, P_{Launching\ Applications}, P_{Installing\ Applications}, P_{Uninstalling\ Applications}, P_{Starting\ Intents}, P_{Starting\ Services}, P_{Stopping\ Services}, P_{Intercepting\ Applications\ Intent\ Data}, P_{Reading\ Other\ Applications\ Data}, P_{Killing\ Applications}, P_{Allocating\ memory\ for\ processes}, P_{Deallocating\ memory\ from\ processes}, P_{Security\ Operations}, P_{Networking\ Operations}...\\}$$
 
 $$P_{io}=\\{P_{Read\ Hardware\ Data}, P_{Write\ Hardware\ Data}, P_{Input\ Emulation}, P_{Output\ Emulation}\\}$$
 
@@ -52,7 +52,10 @@ $$P_{io}=\\{P_{Read\ Hardware\ Data}, P_{Write\ Hardware\ Data}, P_{Input\ Emula
 * For example, the Applications-related manipulations are mapped to "Application Resources (or `AppRes`, for short) Controller Subsystem", while the Processes-related manipulations are mapped to the "Unix Process Resources (or `ProcRes`, for short) Controller Subsystem", and the 
 
 ### Section 1.2 Architecture 
+Software architecture is all about synthesizing solutions for these problems; decomposing the solutions into components, and mapping these solutions to the appropriate subsystems.
 
+* Operating System Subsystems include the following; `ProcRes` for processes resources management, `AppRes` for Application Resources management, `MemRes` for Memory Resources Management, `SecOp` for security operations.
+* IO Control Subsystems include the following; `R/W HW Data`, and `I/O Emulation`.
 
 ## References:
 * Linux Kernel Architecture.
