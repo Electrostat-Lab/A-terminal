@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 
+import electrostatlab.nativeterm.app.R;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
