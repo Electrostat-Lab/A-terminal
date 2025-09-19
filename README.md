@@ -6,6 +6,21 @@ There are **two channels or two portals** for this project; either through **the
 
 Depending on the requirements and goals of the user applications that will utilize this library; if the application is required to manipulate the Operating System resources mainly affecting other applications on the same user namespace then it should use the **shell interface** to control the system services (e.g., The Android Package Manager System Binary `pm`, and The Android Activity Manager System Binary `am`); if it's required to read or write hardware data or control other system resources (such as memory and disk), then the **native code manipulation** is your solution; the **shell interface** could also be accessed from the native code.
 
+## Table of contents:
+* **Milestones**.
+* **Chapter.01: Problem Analysis and Architecture**
+    * Section 1.1 Problem Analysis
+    * Section 1.2 Architecture
+* **Chapter.02: Detailed and Constructional Design**
+    * Section 2.1: Technology stack and building architecture
+    * Section 2.2: Managing native and JVM memory through C/JNI interfaces
+    * Section 2.3: Mapping the SES/MB component-based diagram from Section 1.2 to an Object-oriented diagram
+    * Section 2.4: Software Components and Functions   
+* **Chapter.03: Testing and Software Verification**
+    * Section 3.1 Unit Testing and Software Verification
+    * Section 3.2 Integration Testing
+    * Section 3.3 Integration with jMonkeyEngine and JmeSurfaceView
+
 ## Milestones:
 - [ ] Hardware/Software problem analysis and architecture.
 - [x] Manipulation via Shell Interface.
