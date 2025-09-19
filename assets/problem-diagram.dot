@@ -1,0 +1,43 @@
+digraph ProblemAnalysis {
+    rankdir=LR;
+    node [shape=box, style=filled, fillcolor="#e3f2fd", fontname="Arial"];
+
+    // Main Problem Node
+    P [label="Main Problem (P): Limited Access & Control\nOver Software & IO Resources on OEM Android Devices", shape=ellipse, fillcolor="#90caf9", fontsize=16];
+
+    // Subproblems
+    POS [label="P_OS:\nSoftware Resource Access & Control"];
+    PIO [label="P_io:\nIO Resource Access & Control"];
+
+    // P_OS components
+    PFork [label="Forking & Cloning Processes"];
+    PSandbox [label="Sandboxing Processes"];
+    PLaunchApp [label="Launching Applications"];
+    PInstallApp [label="Installing Applications"];
+    PUninstallApp [label="Uninstalling Applications"];
+    PStartIntent [label="Starting Intents"];
+    PStartSvc [label="Starting Services"];
+
+    // P_io components
+    PReadHW [label="Read Hardware Data"];
+    PWriteHW [label="Write Hardware Data"];
+    PInputEmu [label="Input Emulation"];
+    POutputEmu [label="Output Emulation"];
+
+    // Structure
+    P -> POS;
+    P -> PIO;
+
+    POS -> PFork;
+    POS -> PSandbox;
+    POS -> PLaunchApp;
+    POS -> PInstallApp;
+    POS -> PUninstallApp;
+    POS -> PStartIntent;
+    POS -> PStartSvc;
+
+    PIO -> PReadHW;
+    PIO -> PWriteHW;
+    PIO -> PInputEmu;
+    PIO -> POutputEmu;
+}
