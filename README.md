@@ -58,14 +58,22 @@ Software architecture is all about synthesizing solutions for these problems; de
 
 * Operating System Subsystems include the following; `ProcRes` for processes resources management, `AppRes` for Application Resources management, `MemRes` for Memory Resources Management, `SecOp` for security operations, `NetRes` for Networking Resources management.
 * IO Control Subsystems include the following; `R/W HW Data`, and `I/O Emulation`.
+* The architecture includes the functional (e.g., ProcRes, and AppRes) and the non-functional requirements (e.g., MemRes, and SecOp) for the software based on the problem analysis.
 
 <img src="https://github.com/Electrostat-Lab/A-terminal/blob/master/assets/architecture-diagram.png" alt="Software Architecture Figure"/>
 
-## Chapter.02: Testing and Software Verification
+## Chapter.02: Detailed and Constructional Design
 
-### Section 2.1 Unit Testing and Software Verification
-### Section 2.2 Integration Testing
-### Section 2.3 Integration with jMonkeyEngine and JmeSurfaceView
+### Section 2.1: Technology stack and building architecture
+### Section 2.2: Managing native and JVM memory through C/JNI interfaces
+### Section 2.3: Mapping the SES/MB component-based diagram from Section 1.2 to an Object-oriented diagram
+### Section 2.4: Software Components and Functions
+
+## Chapter.03: Testing and Software Verification
+
+### Section 3.1 Unit Testing and Software Verification
+### Section 3.2 Integration Testing
+### Section 3.3 Integration with jMonkeyEngine and JmeSurfaceView
 
 ## References:
 * Linux Kernel Architecture.
