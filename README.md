@@ -49,12 +49,12 @@ $$P_{OS}=\\{P_{Forking\ and\ cloning\ processes}, P_{Sandboxing\ Processes}, P_{
 $$P_{io}=\\{P_{Read\ Hardware\ Data}, P_{Write\ Hardware\ Data}, P_{Input\ Emulation}, P_{Output\ Emulation}\\}$$
 
 * These problems represent fine concrete components that need to grouped, by mapping them to _Subsystems_ with an entity structural skeleton (Optional).
-* For example, the Applications-related manipulations are mapped to "Application Resources (or `AppRes`, for short) Controller Subsystem", while the Processes-related manipulations are mapped to the "Unix Process Resources (or `ProcRes`, for short) Controller Subsystem", and the 
+* For example, the Applications-related manipulations are mapped to "Application Resources (or `AppRes`, for short) Controller Subsystem", while the Processes-related manipulations are mapped to the "Unix Process Resources (or `ProcRes`, for short) Controller Subsystem", and the "Networking Resources (or `NetRes`, for short) Controller Subsystem".
 
 ### Section 1.2 Architecture 
 Software architecture is all about synthesizing solutions for these problems; decomposing the solutions into components, and mapping these solutions to the appropriate subsystems.
 
-* Operating System Subsystems include the following; `ProcRes` for processes resources management, `AppRes` for Application Resources management, `MemRes` for Memory Resources Management, `SecOp` for security operations.
+* Operating System Subsystems include the following; `ProcRes` for processes resources management, `AppRes` for Application Resources management, `MemRes` for Memory Resources Management, `SecOp` for security operations, `NetRes` for Networking Resources management.
 * IO Control Subsystems include the following; `R/W HW Data`, and `I/O Emulation`.
 
 ## References:
