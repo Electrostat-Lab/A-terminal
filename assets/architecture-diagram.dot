@@ -1,0 +1,61 @@
+digraph SES_MB_SolutionDesign {
+    rankdir=LR;
+    node [fontname="Arial", style=filled];
+
+    // SES (System Entity Structure)
+    subgraph cluster_ses {
+        label="SES: System Entity Structure";
+        style=filled; color="#a5d6a7"; fillcolor="#e8f5e9";
+        SES [label="System", shape=box3d, fillcolor="#a5d6a7"];
+        OS [label="OS Subsystems", shape=box, fillcolor="#b2dfdb"];
+        IOControl [label="IO Control Subsystems", shape=box, fillcolor="#b2dfdb"];
+        SES -> OS;
+        SES -> IOControl;
+        ProcRes [label="ProcRes"]; AppRes [label="AppRes"];
+        MemRes [label="MemRes"]; NetRes [label="NetRes"]; SecOp [label="SecOp"];
+        OS -> ProcRes; OS -> AppRes; OS -> MemRes; OS -> NetRes; OS -> SecOp;
+        HWData [label="HW Data"]; IOEmu [label="I/O Emulation"];
+        IOControl -> HWData; IOControl -> IOEmu;
+    }
+
+    // MB (Model Base)
+    subgraph cluster_mb {
+        label="MB: Model Base (Mechanisms)";
+        style=filled; color="#90caf9"; fillcolor="#e3f2fd";
+        MB [label="Model Base", shape=ellipse, fillcolor="#90caf9"];
+        subgraph cluster_access {
+            label="Access Mechanisms"; style=dashed; color="#64b5f6";
+            ShellIF [label="Shell Interface", shape=component, fillcolor="#bbdefb"];
+            AndroidBinaries [label="Android System Binaries", shape=component, fillcolor="#bbdefb"];
+        }
+        subgraph cluster_kernel {
+            label="Kernel Interfaces"; style=dashed; color="#64b5f6";
+            KernelAPI [label="Linux Kernel Userspace API", shape=component, fillcolor="#bbdefb"];
+            VFS [label="Kernel VFS Interface", shape=component, fillcolor="#bbdefb"];
+            CharDev [label="CharDev/VFS", shape=component, fillcolor="#bbdefb"];
+            BlockDev [label="Block/VFS", shape=component, fillcolor="#bbdefb"];
+            BusSysfs [label="Bus/VFS (Sysfs)", shape=component, fillcolor="#bbdefb"];
+            KVM [label="KVM", shape=component, fillcolor="#bbdefb"];
+        }
+        subgraph cluster_security {
+            label="Security Mechanisms"; style=dashed; color="#64b5f6";
+            SELinux [label="SELinux (LSM)", shape=component, fillcolor="#bbdefb"];
+            RootAccess [label="Root/SU Access", shape=component, fillcolor="#bbdefb"];
+        }
+        MB -> ShellIF; MB -> AndroidBinaries; MB -> KernelAPI; MB -> VFS;
+        MB -> CharDev; MB -> BlockDev; MB -> BusSysfs; MB -> KVM;
+        MB -> SELinux; MB -> RootAccess;
+    }
+
+    // Mapping SES to MB
+    ProcRes -> MB [style=dashed, arrowhead=open];
+    AppRes -> MB [style=dashed, arrowhead=open];
+    MemRes -> MB [style=dashed, arrowhead=open];
+    NetRes -> MB [style=dashed, arrowhead=open];
+    SecOp -> MB [style=dashed, arrowhead=open];
+    IOControl -> MB [style=dashed, arrowhead=open];
+
+    // Notes
+    note1 [shape=note, label="SELinux must be\npermissive/disabled for full access", fillcolor="#fffde7"];
+    SELinux -> note1 [style=dotted, color="gray"];
+}
