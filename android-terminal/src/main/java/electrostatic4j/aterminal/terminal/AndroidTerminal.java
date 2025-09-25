@@ -1,7 +1,7 @@
-package com.android_terminal.androidTerminal.terminal;
+package electrostatic4j.aterminal.terminal;
 
 
-import com.android_terminal.androidTerminal.command.Command;
+import electrostatic4j.aterminal.command.Command;
 
 public class AndroidTerminal extends CommandLineExecutor{
     public static final Object terminalMutex = new Object();

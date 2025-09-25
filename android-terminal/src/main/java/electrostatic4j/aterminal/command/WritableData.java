@@ -1,4 +1,4 @@
-package com.android_terminal.androidTerminal.command;
+package electrostatic4j.aterminal.command;
 
 import android.view.View;
 import java.io.File;

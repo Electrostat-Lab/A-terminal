@@ -1,7 +1,7 @@
-package com.android_terminal.androidTerminal.command;
+package electrostatic4j.aterminal.command;
 
 
-import com.android_terminal.androidTerminal.terminal.Terminal;
+import electrostatic4j.aterminal.terminal.Terminal;
 
 public interface Command {
     void asyncExecution(final Runtime jvmRuntime, final Terminal.Permission permission) throws InterruptedException;

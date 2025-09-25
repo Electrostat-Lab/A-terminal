@@ -1,9 +1,9 @@
-package com.android_terminal.androidTerminal.command;
+package electrostatic4j.aterminal.command;
 
 import android.view.View;
 
-import com.android_terminal.androidTerminal.terminal.CommandLineExecutor;
-import com.android_terminal.androidTerminal.terminal.Terminal;
+import electrostatic4j.aterminal.terminal.CommandLineExecutor;
+import electrostatic4j.aterminal.terminal.Terminal;
 
 import java.io.File;
 import java.io.IOException;

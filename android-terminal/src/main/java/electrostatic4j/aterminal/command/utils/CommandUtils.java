@@ -1,13 +1,13 @@
-package com.android_terminal.androidTerminal.command.utils;
+package electrostatic4j.aterminal.command.utils;
 
 import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 
-import com.android_terminal.androidTerminal.command.Command;
-import com.android_terminal.androidTerminal.command.CommandSet;
-import com.android_terminal.androidTerminal.terminal.AndroidTerminal;
-import com.android_terminal.androidTerminal.terminal.Terminal;
+import electrostatic4j.aterminal.command.Command;
+import electrostatic4j.aterminal.command.CommandSet;
+import electrostatic4j.aterminal.terminal.AndroidTerminal;
+import electrostatic4j.aterminal.terminal.Terminal;
 
 
 /**
