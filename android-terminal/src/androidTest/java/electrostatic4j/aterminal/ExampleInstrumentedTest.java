@@ -1,4 +1,4 @@
-package com.android_terminal;
+package electrostatic4j.aterminal;
 
 import android.content.Context;
 
