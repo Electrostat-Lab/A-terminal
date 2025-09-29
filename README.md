@@ -126,7 +126,10 @@ reclaimed. Phantom references are most often used to schedule post-mortem cleanu
 ### Section 2.4: Software Components and Functions (functional req.)
 Software components and functions are instantiated on the native side, and glued to the JVM side through the dynamic loading of function tables. The following is the general class hierarchy for the library: 
 
-<img src="https://github.com/Electrostat-Lab/A-terminal/tree/master/docs/html/interfaceelectrostatic4j_1_1aterminal_1_1channel_1_1PlatformChannel__inherit__graph_org.svg" alt="UML Class Diagram"/>
+<img src="https://electrostat-lab.github.io/A-terminal/inherit_graph_10.svg" alt="UML Class Diagram"/>
+
+<img src="https://electrostat-lab.github.io/A-terminal/classElectrostatic_1_1PlatformChannel__inherit__graph_org.svg" alt="UML Class Diagram"/>
+
 
 > [!NOTE]
 > Each entity has a `VFSChannel`, and a `ShellChannel` components. This composition enables the developer to access the functionalities either via the Kernel VFS Subsystems or the Shell interface which also routes the call to the Kernel via System interfaces or System binaries.
