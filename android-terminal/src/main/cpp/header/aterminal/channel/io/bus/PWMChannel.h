@@ -5,9 +5,11 @@
 #ifndef A_TERMINAL_PWMCHANNEL_H
 #define A_TERMINAL_PWMCHANNEL_H
 
+#include <aterminal/channel/io/bus/BusProtocolChannel.h>
+
 namespace Electrostatic {
 
-    class PWMChannel {
+    class PWMChannel: BusProtocolChannel {
 
     };
 

@@ -5,9 +5,11 @@
 #ifndef A_TERMINAL_IEEE80211CHANNEL_H
 #define A_TERMINAL_IEEE80211CHANNEL_H
 
+#include <aterminal/channel/io/bus/BusProtocolChannel.h>
+
 namespace Electrostatic {
 
-    class IEEE80211Channel {
+    class IEEE80211Channel: BusProtocolChannel {
 
     };
 

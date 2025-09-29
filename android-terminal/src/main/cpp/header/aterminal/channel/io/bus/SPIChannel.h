@@ -5,9 +5,11 @@
 #ifndef A_TERMINAL_SPICHANNEL_H
 #define A_TERMINAL_SPICHANNEL_H
 
+#include <aterminal/channel/io/bus/BusProtocolChannel.h>
+
 namespace Electrostatic {
 
-    class SPIChannel {
+    class SPIChannel: BusProtocolChannel {
 
     };
 

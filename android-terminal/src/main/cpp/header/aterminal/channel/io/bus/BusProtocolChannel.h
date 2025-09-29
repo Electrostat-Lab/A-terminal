@@ -5,9 +5,11 @@
 #ifndef A_TERMINAL_BUSPROTOCOLCHANNEL_H
 #define A_TERMINAL_BUSPROTOCOLCHANNEL_H
 
+#include <aterminal/channel/PlatformChannel.h>
+
 namespace Electrostatic {
 
-    class BusProtocolChannel {
+    class BusProtocolChannel: PlatformChannel {
 
     };
 

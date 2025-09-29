@@ -5,9 +5,11 @@
 #ifndef A_TERMINAL_PCICHANNEL_H
 #define A_TERMINAL_PCICHANNEL_H
 
+#include <aterminal/channel/io/bus/BusProtocolChannel.h>
+
 namespace Electrostatic {
 
-    class PCIChannel {
+    class PCIChannel: BusProtocolChannel {
 
     };
 

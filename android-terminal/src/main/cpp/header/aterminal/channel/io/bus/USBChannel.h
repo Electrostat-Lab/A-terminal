@@ -5,9 +5,11 @@
 #ifndef A_TERMINAL_USBCHANNEL_H
 #define A_TERMINAL_USBCHANNEL_H
 
+#include <aterminal/channel/io/bus/BusProtocolChannel.h>
+
 namespace Electrostatic {
 
-    class USBChannel {
+    class USBChannel: BusProtocolChannel {
 
     };
 
