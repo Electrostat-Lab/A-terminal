@@ -77,18 +77,65 @@ Software architecture is all about synthesizing solutions for these problems; de
 
 <img src="https://github.com/Electrostat-Lab/A-terminal/blob/master/assets/architecture-diagram.png" alt="Software Architecture Figure"/>
 
-## Chapter.02: Detailed and Constructional Design
+## Chapter.02: Detailed and Constructional Design (functional req.)
+The detailed software design will depend on the [Electrostatic-Sandbox SDK]() build for Android variants; the SDK provides the _Project: ElectroNetSoft_ that utilizes the GNU/Linux POSIX OS interfaces to provide the applications with appropriate **Shell Access** and **Linux Kernel VFS Access**; both are channels to the Operating System resources (i.e., processes and memory), and IO resources (e.g., PMIO-based and DMA-based devices).
 
-### Section 2.1: Technology stack and building architecture
-### Section 2.2: Managing native and JVM memory through C/JNI interfaces
+### Section 2.1: Technology stack and building architecture (methodologies)
+**Technology Stack:**
+1) The Electrostatic-Sandbox SDK (dynamically linked against the byte code).
+2) The Android SDK and the Android OS Services (found in the `system.img`).
+3) The Java Platform (compiled to byte code and packaged into dalvik executables `.dex`).
+4) JNI and C/C++ (compiled to machine code and linked against the byte code during runtime).
+5) GNU/Linux POSIX interfaces (dynamically linked with the native binaries).
+6) The Linux Kernel (found in the `boot.img`).
+
+**Building Stack and Architecture:**
+1) Gradle building tool (starts a Gradle daemon; passes commands to the daemon process; executes building routines defined with the `build.gradle` files).
+2) Gradle Dependency Manager (utilizes a RESTful API to pull dependencies from central repositories; and link them with the compilation process or package them for a runtime linking process).
+3) Maven Central Repository (one of the central repositories; for uploading and downloading third-party dependencies including the Electrostatic SDK, Serial4j, Jector, and Articular-ES).
+4) Google Central Repository (one of the central repositories; for uploading and downloading dependencies utilized by Google Framework including the Android Framework and Flutter).
+5) Android Gradle Plugin (AGP) (A constellation of Gradle APIs found on the Google Central Repo, that wrap the Android building framework in the form of sequential Gradle tasks).
+  
+### Section 2.2: Managing native and JVM memory through C/JNI interfaces (non-functional req.)
+
+**Types of references in the Java Platform:**
+* Reference: A reference object encapsulates a reference to some other object so that the reference itself may be examined and manipulated like any other object. Three types of reference objects are provided, each weaker than the last: soft, weak, and phantom. Each type corresponds to a different level of reachability, as defined below.
+* Soft Reference: Soft reference objects, which are cleared at the discretion of the garbage collector in response to memory demand. Soft references are most often used to implement memory-sensitive caches.
+* Weak Reference: Weak reference objects, which do not prevent their referents (i.e., their objects) from being made finalizable, finalized, and then reclaimed. Weak references are most often used to implement canonicalizing mappings (i.e., Reclaimable memory references).
+* Phantom Reference: Phantom reference objects, which are enqueued after the collector determines that their referents may otherwise be
+reclaimed. Phantom references are most often used to schedule post-mortem cleanup actions.
+* Strong Reference: An object is strongly reachable if it can be reached by some thread without traversing any reference objects. A newly-created object is strongly reachable by the thread that created it.
+
+> [!NOTE]
+> **Constructional Design Tips:**
+> * On the Java side, it's recommended to use only one strong reference object (i.e., the initial object from a factory pattern).
+> * The rest of the references to the same object should be weak references that don't prevent the GC from reclaiming the memory of the object once all the strong references are nullified.
+> * When passing references from Java to JNI glue layers or otherwise from JNI layers to Java; it's recommended to use weak references that will not trap the memory of its referents for any reason, once the original strong reference is nullified.
+> * Another way to avoid the Java references memory leak is to use an interpreter pattern that utilizes primitive local variables as messaging mechanisms over the Java layers (e.g., interpreting error codes to Java runtime unchecked exceptions).
+
+**Shell Interface:**
+1) Access to the shell environment: access to the shell environment from the GNU/Linux interfaces can be managed using `unistd` Unix Standard libraries; by forking the current parent process into a new Unix child process, running in parallel with its parent process, piping the IO back to its parent process, and executing an executable binary; eventually returning to its parent process with blocking, polling or async signaling. 
+2) Data Output from the Shell environment to the filesystem: data output can be retrieved by examining the output end (`filedes[1]`) of the process pipe filesystems.
+3) Data Input from the filesystem to the Shell environment: data input can be retrieved examining the input end (`filedes[0]`) of the process pipe filesystems that points to the same circular buffer but with a read pointer.
+4) Memory Management: implementation of a rigorous memory management system involves using a Lifecycle pattern to control when the pipes and memory are allocated/deallocated on the behalf of the application.
+
+**VFS Kernel Userspace Interface:**
+
+
 ### Section 2.3: Mapping the SES/MB component-based diagram from Section 1.2 to an Object-oriented diagram
-### Section 2.4: Software Components and Functions
+### Section 2.4: Software Components and Functions (functional req.)
+Software components and functions are instantiated on the native side, and glued to the JVM side through the dynamic loading of function tables. The following is the general class hierarchy for the library: 
+
+<img src="https://github.com/Electrostat-Lab/A-terminal/tree/master/docs/html/interfaceelectrostatic4j_1_1aterminal_1_1channel_1_1PlatformChannel__inherit__graph_org.svg" alt="UML Class Diagram"/>
+
+> [!NOTE]
+> Each entity has a `VFSChannel`, and a `ShellChannel` components. This composition enables the developer to access the functionalities either via the Kernel VFS Subsystems or the Shell interface which also routes the call to the Kernel via System interfaces or System binaries.
 
 ## Chapter.03: Testing and Software Verification
 
-### Section 3.1 Unit Testing and Software Verification
-### Section 3.2 Integration Testing
-### Section 3.3 Integration with jMonkeyEngine and JmeSurfaceView
+### Section 3.1 Unit Testing and Software Verification (non-functional req.)
+### Section 3.2 Integration Testing (non-functional req.)
+### Section 3.3 Integration with jMonkeyEngine and JmeSurfaceView (non-functional req.)
 
 ## References:
 * Linux Kernel Architecture.
@@ -96,3 +143,5 @@ Software architecture is all about synthesizing solutions for these problems; de
 * Android Platform Architecture.
 * Discrete Mathematics, Formal Methods for Software Engineering.
 * IEEE SWEBOK.
+* UML Class diagrams.
+* Z-formal Specification Language.
