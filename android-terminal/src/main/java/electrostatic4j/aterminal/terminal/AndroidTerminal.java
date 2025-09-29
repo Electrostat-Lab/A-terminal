@@ -1,0 +1,19 @@
+package electrostatic4j.aterminal.terminal;
+
+
+import electrostatic4j.aterminal.command.Command;
+
+public class AndroidTerminal extends CommandLineExecutor{
+    public static final Object terminalMutex = new Object();
+
+    public AndroidTerminal(){
+        synchronized (terminalMutex){
+            terminalMutex.notifyAll();
+        }
+    }
+
+    @Override
+    public void doExecute(Runtime jvmRuntime, Command command, Permission permission) throws InterruptedException {
+            command.asyncExecution(jvmRuntime, permission);
+    }
+}

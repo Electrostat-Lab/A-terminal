@@ -1,3 +1,5 @@
+import com.android.build.gradle.tasks.ExternalNativeBuildTask
+
 plugins {
     id 'com.android.library'
 }
@@ -14,6 +16,14 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        externalNativeBuild {
+            cmake {
+                arguments "-DCMAKE_VERBOSE_MAKEFILE=ON"
+                cFlags "-std=gnu99"
+                cppFlags "-std=gnu++17"
+            }
+        }
     }
 
     buildTypes {
@@ -30,10 +40,15 @@ android {
     }
 }
 
+tasks.withType(ExternalNativeBuildTask).configureEach {
+    logging.captureStandardOutput(LogLevel.LIFECYCLE)
+    logging.captureStandardError(LogLevel.LIFECYCLE)
+}
+
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.13.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
 }

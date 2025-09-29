@@ -7,9 +7,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.android_terminal.androidTerminal.command.Command;
-import com.android_terminal.androidTerminal.command.utils.CommandUtils;
-import com.android_terminal.androidTerminal.terminal.Terminal;
+import electrostatic4j.aterminal.command.Command;
+import electrostatic4j.aterminal.command.utils.CommandUtils;
+import electrostatic4j.aterminal.terminal.Terminal;
 
 import java.io.IOException;
 import java.util.concurrent.Callable;
