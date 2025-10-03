@@ -39,6 +39,8 @@ jobs:
         run: sudo apt install doxygen
       - name: Build docs using Doxygen
         run: doxygen ./docs/doxygen-config 
+      - name: Copy other files
+        run: cp ./README.md ./docs/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
