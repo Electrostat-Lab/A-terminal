@@ -37,10 +37,10 @@ jobs:
         run: sudo apt install graphviz
       - name: Setup Doxygen
         run: sudo apt install doxygen
-      - name: Build docs using Doxygen
-        run: doxygen ./docs/doxygen-config 
       - name: Copy other files
         run: cp ./README.md ./docs/
+      - name: Build docs using Doxygen
+        run: doxygen ./docs/doxygen-config 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
